@@ -37,7 +37,7 @@ function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
   return [element, descriptionText];
 }
 
-console.log(countAndDescribe("Hi there!"));
+// console.log(countAndDescribe("Hi there!"));
 
 function extractAndConvert<T extends object, U extends keyof T>(
   obj: T,
@@ -46,4 +46,35 @@ function extractAndConvert<T extends object, U extends keyof T>(
   return "Value " + obj[key];
 }
 
-console.log(extractAndConvert({ name: "Max" }, "name"));
+// console.log(extractAndConvert({ name: "Max" }, "name"));
+
+class DataStorage<T> {
+  private data: T[] = [];
+
+  addItem(item: T) {
+    this.data.push(item);
+  }
+  removeItem(item: T) {
+    this.data.splice(this.data.indexOf(item), 1);
+  }
+  getItems() {
+    return [...this.data];
+  }
+}
+
+const textStorage = new DataStorage<string>();
+
+textStorage.addItem("Max");
+textStorage.addItem("Manu");
+textStorage.removeItem("Manu");
+
+// console.log(textStorage.getItems());
+
+const numberStorage = new DataStorage<number>();
+
+const objStorage = new DataStorage<object>();
+
+objStorage.addItem({ name: "Max" });
+objStorage.addItem({ age: 30 });
+
+console.log(objStorage.getItems());

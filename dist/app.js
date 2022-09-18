@@ -25,8 +25,32 @@ function countAndDescribe(element) {
     }
     return [element, descriptionText];
 }
-console.log(countAndDescribe("Hi there!"));
+// console.log(countAndDescribe("Hi there!"));
 function extractAndConvert(obj, key) {
     return "Value " + obj[key];
 }
-console.log(extractAndConvert({ name: "Max" }, "name"));
+// console.log(extractAndConvert({ name: "Max" }, "name"));
+class DataStorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const textStorage = new DataStorage();
+textStorage.addItem("Max");
+textStorage.addItem("Manu");
+textStorage.removeItem("Manu");
+// console.log(textStorage.getItems());
+const numberStorage = new DataStorage();
+const objStorage = new DataStorage();
+objStorage.addItem({ name: "Max" });
+objStorage.addItem({ age: 30 });
+console.log(objStorage.getItems());
