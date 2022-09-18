@@ -44,13 +44,11 @@ class DataStorage {
         return [...this.data];
     }
 }
-const textStorage = new DataStorage();
-textStorage.addItem("Max");
-textStorage.addItem("Manu");
-textStorage.removeItem("Manu");
-// console.log(textStorage.getItems());
-const numberStorage = new DataStorage();
-const objStorage = new DataStorage();
-objStorage.addItem({ name: "Max" });
-objStorage.addItem({ age: 30 });
-console.log(objStorage.getItems());
+function createCourseGoal(title, description, date) {
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal;
+}
+const names = ["Max", "Sports"];
